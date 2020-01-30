@@ -24,7 +24,7 @@ sed -i 's,Require local,#Require local\n Require all granted,g' /etc/httpd/conf.
 
 unalias cp
 cp /etc/phpldapadmin/config.php /etc/phpldapadmin/config.php.orig         #	make a copy of the origonal config file, we need the blowfish key
-grep 'config.*blow£ish' /etc/phpldapadmin/config.php.orig                 #	grep for the blowfish key so we can see it in the logs
+grep 'config.*blowfish' /etc/phpldapadmin/config.php.orig                 #	grep for the blowfish key so we can see it in the logs
 rightkey=$( grep 'config.*blowfish' /etc/phpldapadmin/config.php.orig )   #	use some rejex to get just the key and shove it into the variable 'right key
 cp /tmp/hello-nti-310/config/config.php /etc/phpldapadmin/config.php      # copy our pre-made config to config.php
 
@@ -35,9 +35,9 @@ systemctl restart httpd
 
 echo "phpldapadmin is now up and running" 
 echo "we are configuring ldap and ldapadmin
-
+ 
 #Generates and stores new passwd securely
-newsecret=${slappasswd -g)
+newsecret=$(slappasswd -g)
 newhash=$(slappasswd -s "$newsecret")
 echo -n "$newsecret" > /root/ldap_admin_pass
 chmod 0600 /root/ldap_admin_pass
