@@ -82,7 +82,7 @@ olcTLSCertificateFile: /etc/openldap/certs/nti310ldapcert.pem
 dn: cn=config
 changetype: modify
 replace: olcTLSCertificateKeyFile
-olcTLSCertificateKeyFile: /etc/openldap/certs/nti310ldapkey.pem” > certs.Idif
+olcTLSCertificateKeyFile: /etc/openldap/certs/nti310ldapkey.pem” > certs.ldif
 
 
 
