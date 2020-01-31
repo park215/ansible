@@ -54,7 +54,7 @@ olcRootDN : cn=ldapadm,dc=nti310,dc=local
 \n
 dn: olcDatabase-{2}hdb,cn=config
 changetype: modify
-replace:olcRootPW 
+replace: olcRootPW 
 olcRootPW: Snewhash" > db.ldif
 
 ldapmodify -Y EXTERNAL -H ldapi:/// -f db.ldif
