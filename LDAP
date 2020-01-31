@@ -50,9 +50,9 @@ olcSuffix: dc=nti310,dc=local
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootDN
-olcRootDN : cn=ldapadm,dc=nti310,dc=local
+olcRootDN: cn=ldapadm,dc=nti310,dc=local
 \n
-dn: olcDatabase-{2}hdb,cn=config
+dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootPW 
 olcRootPW: $newhash" > db.ldif
