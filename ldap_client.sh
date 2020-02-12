@@ -24,17 +24,19 @@ systemctl restart libnss-ldap
 apt -y install debconf-utils
 
 echo "ldap-auth-config        ldap-auth-config/bindpw password
+ldap-auth-config        ldap-auth-config/bindpw password
 ldap-auth-config        ldap-auth-config/rootbindpw     password
-ldap-auth-config        ldap-auth-config/ldapns/ldap-server     string  ldapi:///ldap1
-ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,dc=net
-ldap-auth-config        ldap-auth-config/pam_password   select  md5
 ldap-auth-config        ldap-auth-config/dbrootlogin    boolean true
+ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,dc=net
+ldap-auth-config        ldap-auth-config/rootbinddn     string  cn=manager,dc=example,dc=net
 ldap-auth-config        ldap-auth-config/dblogin        boolean false
-ldap-auth-config        ldap-auth-config/rootbinddn     string  cn=ldapdm,dc=nti310,dc=local
+ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=example,dc=net
 ldap-auth-config        ldap-auth-config/override       boolean true
 ldap-auth-config        ldap-auth-config/ldapns/ldap_version    select  3
+ldap-auth-config        ldap-auth-config/ldapns/ldap-server     string  ldapi:///
+ldap-auth-config        ldap-auth-config/pam_password   select  md5
 ldap-auth-config        ldap-auth-config/move-to-debconf        boolean true
-ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=nti310,dc=local" > /tmp/ldap_debconf
+
 
 while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debconf
 
