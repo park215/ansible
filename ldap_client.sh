@@ -34,7 +34,7 @@ ldap-auth-config        ldap-auth-config/ldapns/ldap-server     string  ldapi://
 ldap-auth-config        ldap-auth-config/dblogin        boolean false
 ldap-auth-config        ldap-auth-config/dbrootlogin    boolean true
 ldap-auth-config        ldap-auth-config/override       boolean true
-ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=example,dc=net"
+ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=example,dc=net" > /tmp/ldap_debconf
 
 
 while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debconf
