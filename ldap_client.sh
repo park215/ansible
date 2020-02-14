@@ -13,9 +13,9 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 sed -i 's/base dc=example,dc=net/base dc=nti310,cd=local/g' /etc/ldap.conf
 sed -i 's,uri ldapi:///,uri ldap://ldap,g' /etc/ldap.conf
 sed -i 's/rootbinddn cn=manager,dc=example,dc=net/rootbinddn cn=ldapadm,dc=nti310,dc=local/g' /etc/ldap.conf
-sed -i "s/#nss_base_group.[ \t]*ou=Group,dc=padl,dc=com?one/nss_base_group          ou=Group,dc=nti310,dc=local/g" /etc/ldap.conf
-sed -i 's/#nss_base_passwd.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_passwd        ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
-sed -i 's/#nss_base_shadow.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_shadow        ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
+sed -i 's/#nss_base_passwd ou=People,dc=padl,dc=com?one/nss_base_passwd  ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
+sed -i 's/#nss_base_group ou=Group,dc=padl,dc=com\?one/nss_base_group          ou=Group,dc=nti310,dc=local/g' /etc/ldap.conf
+sed -i 's/#nss_base_shadow  ou=People,dc=padl,dc=com\?one/nss_base_shadow ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
 
 systemctl restart sshd
 echo "ZIXsGhop" > /etc/ldap.secret
@@ -25,18 +25,16 @@ apt -y install debconf-utils
 
 echo "ldap-auth-config        ldap-auth-config/rootbindpw     password
 ldap-auth-config        ldap-auth-config/bindpw password
-ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,dc=net
-ldap-auth-config        ldap-auth-config/rootbinddn     string  cn=manager,dc=example,dc=net
-ldap-auth-config        ldap-auth-config/move-to-debconf        boolean true
-ldap-auth-config        ldap-auth-config/pam_password   select  md5
-ldap-auth-config        ldap-auth-config/ldapns/ldap_version    select  3
-ldap-auth-config        ldap-auth-config/ldapns/ldap-server     string  ldapi:///
-ldap-auth-config        ldap-auth-config/dblogin        boolean false
+ldap-auth-config        ldap-auth-config/ldapns/ldap_version    select      3
+ldap-auth-config        ldap-auth-config/rootbinddn     string  cn=ldapadm,dc=nti310,dc=local
 ldap-auth-config        ldap-auth-config/dbrootlogin    boolean true
+ldap-auth-config        ldap-auth-config/pam_password   select  md5
+ldap-auth-config        ldap-auth-config/dblogin        boolean false
+ldap-auth-config        ldap-auth-config/move-to-debconf        boolean     true
+ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=nti310,dc=local
 ldap-auth-config        ldap-auth-config/override       boolean true
-ldap-auth-config        ldap-auth-config/ldapns/base-dn string  dc=example,dc=net" > /tmp/ldap_debconf
-
+ldap-auth-config        ldap-auth-config/ldapns/ldap-server     string      ldap://ldap
+ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,dc=net" > /tmp/ldap_debconf
 
 while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debconf
-
 
