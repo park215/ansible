@@ -12,7 +12,7 @@ systemctl start rpcbind
 systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
-cd/var/nfsshare/
+cd /var/nfsshare/
 
 echo"/var/nfsshare/home_dirs *(rw,sync,no_all_squash)
 /var/nfsshare/devstuff *(rw,sync,no_all_squash)
