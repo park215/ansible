@@ -17,8 +17,8 @@ perl -i -0pe "BEGIN{undef $/;} s/        'ENGINE':.*db.sqlite3'\),/        'ENGI
 sed -i "s/host    all             all             127.0.0.1\/32            md5/host    all             all             0.0.0.0\/0               md5/g" /var/lib/pgsql/data/pg_hba.conf
 
 #make sure your user has full permissions:
-echo "alter user nti310user createb;" > /tmp/authfile
-sudo -u postgress /bin/psql -f /tmp/authfile
+echo "alter user nti310user createdb;" > /tmp/authfile
+sudo -u postgres /bin/psql -f /tmp/authfile
 
 #change ownership of the NTI310 db
 echo "ALTER DATABASE nti 310 OWNER
