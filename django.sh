@@ -21,7 +21,7 @@ echo "alter user nti310user createdb;" > /tmp/authfile
 sudo -u postgres /bin/psql -f /tmp/authfile
 
 #change ownership of the NTI310 db
-echo "ALTER DATABASE nti 310 OWNER
+echo "ALTER DATABASE nti310 OWNER
 TO nti310user; " > /tmp/changeowner
 sudo -u postgres /bin/psql -f /tmp/changeowner
 
