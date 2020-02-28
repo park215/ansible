@@ -1,11 +1,11 @@
-#!/bin/bash
+sud#!/bin/bash
 # Based on the tutorial here: https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-18-04
 sudo yum update -y
 yum install -y openvpn wget
-wget -0 /tmp/easyrsa https://github.con/OpenVPN/easy-rsa-old/archive/2.3.3.tar.gz
+wget -O /tmp/easyrsa https://github.com/OpenVPN/easy-rsa-old/archive/2.3.3.tar.gz
 tar xfz /tmp/easyrsa
 mkdir /etc/openvpn/easy-rsa
-cp -rf easy-rsa-old-2.3.3/easy-rsa/2.0/*/etc/openvpn/easy-rsa
+cp -rf easy-rsa-old-2.3.3/easy-rsa/2.0/* /etc/openvpn/easy-rsa
 sudo cp /usr/share/doc/openvpn-2.4.8/sample/sample-config-files/server.conf /etc/openvpn
 # vim /etc/openvpn/server.conf
 # uncomment push "redirect-gateway def1 bypass-dhcp"
