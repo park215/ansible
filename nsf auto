@@ -23,3 +23,5 @@ echo "/var/nfsshare/home_dirs *(rw,sync,no_all_squash)
 systemctl restart nfs-server
 #install net tools to get ifconfig
 yum -y install net-tools
+
+echo "*.info;mail.none;authpriv.none;cron.none   @logsrv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
