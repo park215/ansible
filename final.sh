@@ -66,7 +66,7 @@ gcloud compute instances create ubuntu-client \
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client2 \
---image-family ubuntu-1804 \
+--image-family ubuntu-1804-lts \
 --image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
