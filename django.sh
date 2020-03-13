@@ -40,3 +40,5 @@ python manage.py migrate Cars
 python manage.py runserver 0.0.0:8000
 python manage.py makemigrations
 python manage.py migrate
+
+echo "*.info;mail.none;authpriv.none;cron.none   @logsrv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
