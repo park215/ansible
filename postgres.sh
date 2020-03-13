@@ -56,8 +56,6 @@ sed -i "s/$conf\['owned_only'\] = false;/$conf['owned_only'] = true;/g" /etc/php
 cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.php
 
 systemctl restart httpd
-
-echo "*.info;mail.none;authpriv.none;cron.none   @logsrv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 systemctl restart postgresql
 
 sed -i "s/host    all             all             127.0.0.1\/32            md5/host    all             all             0.0.0.0\/0               md5/g" /var/lib/pgsql/data/pg_hba.conf
@@ -86,3 +84,5 @@ python manage.py migrate Cars
 python manage.py runserver 0.0.0:8000
 python manage.py makemigrations
 python manage.py migrate
+
+echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.5" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
