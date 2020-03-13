@@ -56,4 +56,6 @@ sed -i "s/$conf\['owned_only'\] = false;/$conf['owned_only'] = true;/g" /etc/php
 cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.php
 
 systemctl restart httpd
+
+echo "*.info;mail.none;authpriv.none;cron.none   @logsrv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 systemctl restart postgresql
