@@ -57,7 +57,7 @@ gcloud compute instances create django2 \
 --private-network-ip=10.128.0.9
 
 #ubuntu with ldap and nfs
-gcloud compute instances create ldapnfsclient \
+gcloud compute instances create ubuntu-client \
 --image-family ubuntu 18.04 \
 --image-project centos-cloud \
 --zone us-central-a \
@@ -68,7 +68,7 @@ gcloud compute instances create ldapnfsclient \
 --private-network-ip=10.128.0.10
 
 #ubuntu with ldap and nfs
-gcloud compute instances create ldapnfsclient2 \
+gcloud compute instances create ubuntu-client2 \
 --image-family ubuntu 18.04 \
 --image-project centos-cloud \
 --zone us-central-a \
