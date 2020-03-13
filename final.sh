@@ -4,7 +4,7 @@
 gcloud compute instances create rsyslog-server2 \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-central-a \
+--zone us-central1-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -15,7 +15,7 @@ gcloud compute instances create rsyslog-server2 \
 gcloud compute instances create postgres2 \
 --image-family centos-8 \
 --image-project centos-cloud \
---zone us-central-a \
+--zone us-central1-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -26,7 +26,7 @@ gcloud compute instances create postgres2 \
 gcloud compute instances create ldap2 \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-central-a \
+--zone us-central1-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -37,7 +37,7 @@ gcloud compute instances create ldap2 \
 gcloud compute instances create django2 \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-central-a \
+--zone us-central1-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -48,8 +48,7 @@ gcloud compute instances create django2 \
 gcloud compute instances create nfs2 \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-central-a \
---tags "http-server","https-server" \
+--zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/nfs.sh \
@@ -59,8 +58,7 @@ gcloud compute instances create nfs2 \
 gcloud compute instances create ubuntu-client \
 --image-family ubuntu 18.04 \
 --image-project centos-cloud \
---zone us-central-a \
---tags "http-server","https-server" \
+--zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
@@ -70,8 +68,7 @@ gcloud compute instances create ubuntu-client \
 gcloud compute instances create ubuntu-client2 \
 --image-family ubuntu 18.04 \
 --image-project centos-cloud \
---zone us-central-a \
---tags "http-server","https-server" \
+--zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
