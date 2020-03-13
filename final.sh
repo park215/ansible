@@ -22,16 +22,16 @@ gcloud compute instances create ldap2 \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/LDAP.sh \
 --private-network-ip=10.128.0.6
 
-#django
-gcloud compute instances create django2 \
+#nfs
+gcloud compute instances create nfs2 \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/sxs924/NTI-310/django.sh \
---private-network-ip=10.128.0.6
+--metadata-from-file startup-script=/home/sxs924/NTI-310/nfs.sh \
+--private-network-ip=10.128.0.7
 
 #postgres
 gcloud compute instances create postgres2 \
@@ -42,18 +42,39 @@ gcloud compute instances create postgres2 \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/postgres.sh \
---private-network-ip=10.128.0.7
+--private-network-ip=10.128.0.8
 
-#nsf
-gcloud compute instances create nsf2 \
+
+#django
+gcloud compute instances create django2 \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central-a \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/sxs924/NTI-310/nsf.sh \
---private-network-ip=10.128.0.8
+--metadata-from-file startup-script=/home/sxs924/NTI-310/django.sh \
+--private-network-ip=10.128.0.9
 
+#ubuntu with ldap and nfs
+gcloud compute instances create ldapnfsclient \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central-a \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
+--private-network-ip=10.128.0.10
 
+#ubuntu with ldap and nfs
+gcloud compute instances create ldapnfsclient2 \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central-a \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
+--private-network-ip=10.128.0.11
 
