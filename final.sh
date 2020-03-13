@@ -47,7 +47,7 @@ gcloud compute instances create django2 \
 #nfs
 gcloud compute instances create nfs2 \
 --image-family centos-7 \
---image-project centos-cloud \
+--image-project ubuntu-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -56,8 +56,8 @@ gcloud compute instances create nfs2 \
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
---image-family ubuntu-1804 \
---image-project centos-cloud \
+--image-family ubuntu-1804-lts \
+--image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -67,7 +67,7 @@ gcloud compute instances create ubuntu-client \
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client2 \
 --image-family ubuntu-1804 \
---image-project centos-cloud \
+--image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
