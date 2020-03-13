@@ -58,7 +58,7 @@ gcloud compute instances create django2 \
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ldapnfsclient \
---image-family centos-7 \
+--image-family ubuntu 18.04 \
 --image-project centos-cloud \
 --zone us-central-a \
 --tags "http-server","https-server" \
@@ -69,7 +69,7 @@ gcloud compute instances create ldapnfsclient \
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ldapnfsclient2 \
---image-family centos-7 \
+--image-family ubuntu 18.04 \
 --image-project centos-cloud \
 --zone us-central-a \
 --tags "http-server","https-server" \
