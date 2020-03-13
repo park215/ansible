@@ -22,7 +22,7 @@ systemctl restart nfs-server
 #install net tools to get ifconfig
 yum -y install net-tools
 
-echo "*.info;mail.none;authpriv.none;cron.none   @logsrv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.5" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 
 # use if config to find your ip address you will use this for client
 
