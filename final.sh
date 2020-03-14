@@ -53,6 +53,8 @@ gcloud compute instances create nfs2 \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/nfs.sh \
 --private-network-ip=10.128.0.7
 
+sleep 5m
+
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
 --image-family ubuntu-1804-lts \
