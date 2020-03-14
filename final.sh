@@ -5,7 +5,6 @@ gcloud compute instances create rsyslog-server2 \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
---tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
@@ -57,7 +56,7 @@ gcloud compute instances create nfs2 \
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
 --image-family ubuntu-1804-lts \
---image-project gce-uefi-images \
+--image-project ubuntu-os-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -67,7 +66,7 @@ gcloud compute instances create ubuntu-client \
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client2 \
 --image-family ubuntu-1804-lts \
---image-project gce-uefi-images \
+--image-project ubuntu-os-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
