@@ -53,8 +53,8 @@ sleep 20
 
 #nfs
 gcloud compute instances create nfs2 \
---image-family centos-7 \
---image-project ubuntu-cloud \
+--image-family centos-8 \
+--image-project centos-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
