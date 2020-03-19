@@ -67,7 +67,7 @@ sleep 5m
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
 --image-family ubuntu-1804-lts \
---image-project ubuntu-os-cloud \
+--image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -77,7 +77,7 @@ gcloud compute instances create ubuntu-client \
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client2 \
 --image-family ubuntu-1804-lts \
---image-project ubuntu-os-cloud \
+--image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
