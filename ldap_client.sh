@@ -38,7 +38,7 @@ ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,
 
 while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debconf
 
-apt-get install nfs-client
+apt-get install -y nfs-client 
 
 showmount -e 10.128.0.7 #where $ipaddress is the ip of your nfs server
 mkdir /mnt/test
