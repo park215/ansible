@@ -26,7 +26,7 @@ gcloud compute instances create postgres2 \
 sleep 20
 
 #LDAP
-gcloud compute instances create ldap2 \
+gcloud compute instances create ldap \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
