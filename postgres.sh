@@ -69,20 +69,5 @@ echo "ALTER DATABASE nti310 OWNER
 TO nti310user; " > /tmp/changeowner
 sudo -u postgres /bin/psql -f /tmp/changeowner
 systemctl restart postgresql
-#from django
-python manage.py startapp Cars
-echo "class Specs(models.Model):
-    name = models.CharField(max_length = 20)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    weight = models.PositiveIntegerField()" >> Cars/models.py
-  
-# put sed into the INSTALLED_APPS variable
-sed -i "40i \ \ \ \ 'Cars'," nti310/settings.py
-
-python manage.py makemigrations Cars
-python manage.py migrate Cars
-python manage.py runserver 0.0.0:8000
-python manage.py makemigrations
-python manage.py migrate
 
 echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.5" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
