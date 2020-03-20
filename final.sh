@@ -62,7 +62,7 @@ gcloud compute instances create nfs2 \
 --private-network-ip=10.128.0.7
 
 #sleeps for 5 minutes to allow the servers to boot before clients
-sleep 5m
+sleep 2m
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
