@@ -28,7 +28,11 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
-yum -y install python-pip python-devel gcc postgresql-devel postgresql-contrib
+yum -y install python-pip 
+yum -y install python-devel 
+yum -y install gcc 
+yum -y install postgresql-devel 
+yum -y install postgresql-contrib
 pip install --upgrade pip
 pip install virtualenv
 #moved line 38 to 34
