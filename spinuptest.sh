@@ -7,4 +7,4 @@ gcloud compute instances create ldap \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/LDAP.sh \
---private-network-ip=10.128.0.6
+--private-network-ip=10.128.0.9
