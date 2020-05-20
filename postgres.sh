@@ -6,8 +6,8 @@ postgresql-setup initdb
 
 systemctl start postgresql
 
-sed -i 's,host    all             all             127.0.0.1/32            ident,host    all             all             127.0.0.1/32            md5,g' /var/lib/pgsql/data/pg_hba.conf
-sed -i 's,host    all             all             ::1/128                 ident,host    all             all             ::1/128                 md5,g' /var/lib/pgsql/data/pg_hba.conf
+sed -i 's,host    all             all             127.0.0.1/32            ident,host    all             all             127.0.0.1/32            md5,g' /var/lib/pgsql/12/data/pg_hba.conf
+sed -i 's,host    all             all             ::1/128                 ident,host    all             all             ::1/128                 md5,g' /var/lib/pgsql/12/data/pg_hba.conf
 
 
 systemctl restart postgresql
@@ -47,7 +47,6 @@ sudo -u postgres /bin/psql -f /tmp/phpmyadmin
 
 #yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-8-x86_64/phpPgAdmin-5.6-11.rhel8.noarch.rpm
 dnf -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-dnf -y install pgadmin4
 
 systemctl restart httpd
 
