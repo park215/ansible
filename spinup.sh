@@ -105,5 +105,5 @@ gcloud compute instances create cacti \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
+--metadata-from-file startup-script=/home/sxs924/NTI-320/cacti_install.sh \
 --private-network-ip=10.128.15.5
