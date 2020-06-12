@@ -14,7 +14,7 @@ sleep 20
 
 #postgres
 gcloud compute instances create postgres \
---image-family centos-8 \
+--image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
 --tags "http-server","https-server" \
