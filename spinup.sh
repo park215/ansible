@@ -1,19 +1,19 @@
 #!/bin/bash
 
 #syslog
-gcloud compute instances create rsyslog-server2 \
+gcloud compute instances create rsyslog-server \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
---private-network-ip=10.128.15.5
+--private-network-ip=10.128.15.1
 
 sleep 20
 
 #postgres
-gcloud compute instances create postgres2 \
+gcloud compute instances create postgres \
 --image-family centos-8 \
 --image-project centos-cloud \
 --zone us-central1-a \
@@ -21,7 +21,7 @@ gcloud compute instances create postgres2 \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/postgres.sh \
---private-network-ip=10.128.0.8
+--private-network-ip=10.128.0.2
 
 sleep 20
 
@@ -34,12 +34,12 @@ gcloud compute instances create ldap \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/LDAP.sh \
---private-network-ip=10.128.0.6
+--private-network-ip=10.128.0.3
 
 sleep 20
 
 #django
-gcloud compute instances create django2 \
+gcloud compute instances create django \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
@@ -47,19 +47,19 @@ gcloud compute instances create django2 \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/django.sh \
---private-network-ip=10.128.0.9
+--private-network-ip=10.128.0.4
 
 sleep 20
 
 #nfs
-gcloud compute instances create nfs2 \
+gcloud compute instances create nfs \
 --image-family centos-8 \
 --image-project centos-cloud \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/nfs.sh \
---private-network-ip=10.128.0.7
+--private-network-ip=10.128.0.5
 
 #sleeps for 5 minutes to allow the servers to boot before clients
 sleep 20
@@ -72,17 +72,17 @@ gcloud compute instances create ubuntu-client \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
---private-network-ip=10.128.0.10
+--private-network-ip=10.128.0.8
 
 #ubuntu with ldap and nfs
-gcloud compute instances create ubuntu-client2 \
+gcloud compute instances create ubuntu-client \
 --image-family ubuntu-1804-lts \
 --image-project gce-uefi-images \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
---private-network-ip=10.128.0.11
+--private-network-ip=10.128.0.9
 
 sleep 20
 
@@ -94,7 +94,7 @@ gcloud compute instances create nagios \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-320/nagios_server.sh \
---private-network-ip=10.128.15.5
+--private-network-ip=10.128.15.10
 
 sleep 20
 
@@ -106,4 +106,4 @@ gcloud compute instances create cacti \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-320/cacti_install.sh \
---private-network-ip=10.128.15.5
+--private-network-ip=10.128.15.11
