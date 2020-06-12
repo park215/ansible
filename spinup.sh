@@ -98,7 +98,7 @@ gcloud compute instances create nagios \
 
 sleep 20
 
-#nagios
+#cacti
 gcloud compute instances create cacti \
 --image-family centos-7 \
 --image-project centos-cloud \
