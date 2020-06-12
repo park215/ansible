@@ -83,3 +83,27 @@ gcloud compute instances create ubuntu-client2 \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/sxs924/NTI-310/ldap_client.sh \
 --private-network-ip=10.128.0.11
+
+sleep 20
+
+#nagios
+gcloud compute instances create nagios \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central1-a \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
+--private-network-ip=10.128.15.5
+
+sleep 20
+
+#nagios
+gcloud compute instances create cacti \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central1-a \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
+--private-network-ip=10.128.15.5
