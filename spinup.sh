@@ -62,7 +62,7 @@ gcloud compute instances create nfs2 \
 --private-network-ip=10.128.0.7
 
 #sleeps for 5 minutes to allow the servers to boot before clients
-sleep 2m
+sleep 20
 
 #ubuntu with ldap and nfs
 gcloud compute instances create ubuntu-client \
@@ -93,7 +93,7 @@ gcloud compute instances create nagios \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/sxs924/NTI-310/logsrv.sh \
+--metadata-from-file startup-script=/home/sxs924/NTI-320/nagios_server.sh \
 --private-network-ip=10.128.15.5
 
 sleep 20
