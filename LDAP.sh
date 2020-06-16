@@ -150,4 +150,4 @@ ldapadd -x -W -D "cn=ldapadm,dc=nti310,dc=local" -f base.ldif -y /root/ldap_admi
 
 systemctl restart httpd
 
-echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.5" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.1" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
