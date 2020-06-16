@@ -60,4 +60,4 @@ python manage.py runserver 0.0.0:8000
 python manage.py makemigrations
 python manage.py migrate
 
-echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.5" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+echo "*.info;mail.none;authpriv.none;cron.none   @10.128.15.1" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
